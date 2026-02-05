@@ -8,7 +8,7 @@ function App() {
   const [coins, setCoins] = useState([]);
   const [search, setSearch] = useState("");
 
-  // ✅ ASYNC / AWAIT METHOD
+ 
   const fetchDataAsync = async () => {
     try {
       const res = await fetch(API_URL);
@@ -19,7 +19,7 @@ function App() {
     }
   };
 
-  // ✅ .THEN() METHOD (NOW USED – NO ESLINT ERROR)
+
   const fetchDataThen = () => {
     fetch(API_URL)
       .then((res) => res.json())
@@ -27,12 +27,12 @@ function App() {
       .catch((err) => console.error(err));
   };
 
-  // Load data using async/await
+
   useEffect(() => {
     fetchDataAsync();
   }, []);
 
-  // 🔍 SEARCH
+
   const filteredCoins = coins.filter((coin) =>
     coin.name.toLowerCase().includes(search.toLowerCase())
   );
